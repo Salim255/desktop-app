@@ -1,5 +1,8 @@
 //Modules
 const { ipcRenderer } = require("electron");
+const items = require("./items");
+
+///
 let showModal = document.getElementById("show-modal");
 let closeModal = document.getElementById("close-modal");
 let modal = document.getElementById("modal");
@@ -47,11 +50,12 @@ addItem.addEventListener("click", (e) => {
 
 //Listen for item from main process
 ipcRenderer.on("new-item-success", (e, newItem) => {
+  //Addd new Item to "Items" note
+
+  items.addItem(newItem);
   //Enable button
   toggleModalButton();
-  console.log("====================================");
-  console.log(newItem);
-  console.log("====================================");
+
   //Hide modal and clear value
   modal.style.display = "none";
   itemUrl.value = "";

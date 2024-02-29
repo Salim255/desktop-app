@@ -8,7 +8,7 @@ let mainWindow;
 ipcMain.on("new-item", (e, itemUrl) => {
   //Get the new item and send back to renderer
   readItem(itemUrl, (item) => {
-    e.sender.send("new-item-success", itemUrl);
+    e.sender.send("new-item-success", item);
   });
 });
 //Listen for a new Item request
