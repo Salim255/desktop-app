@@ -49,7 +49,9 @@ addItem.addEventListener("click", (e) => {
 ipcRenderer.on("new-item-success", (e, newItem) => {
   //Enable button
   toggleModalButton();
-
+  console.log("====================================");
+  console.log(newItem);
+  console.log("====================================");
   //Hide modal and clear value
   modal.style.display = "none";
   itemUrl.value = "";
